@@ -6,7 +6,7 @@ import { ArrowUpRight, Box, ImagePlus, LogOut, Package, RefreshCw, ShieldCheck, 
 
 type Product = { id: string; name: string; slug: string; price: number; stock: number; category: string; image_url: string; active: boolean; featured: boolean };
 type Order = { id: string; order_number: string; customer_name: string; email: string; total: number; status: string; created_at: string; payment_status: string };
-const currency = (n: number) => new Intl.NumberFormat("en-EG", { style: "currency", currency: "EGP", maximumFractionDigits: 0 }).format(Number(n || 0);
+const currency = (n: number) => new Intl.NumberFormat("en-EG", { style: "currency", currency: "EGP", maximumFractionDigits: 0 }).format(Number(n || 0));
 const statuses = ["pending", "confirmed", "processing", "shipped", "delivered", "cancelled"];
 
 export default function AdminDashboard() {
