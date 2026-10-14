@@ -31,7 +31,7 @@ export default function AdminDashboard() {
     const { data: profile, error: profileError } = await supabase.from("profiles").select("role").eq("id", auth.session.user.id).maybeSingle();
     if (profileError || profile?.role !== "admin") {
       setAdmin(false);
-      setError("This account does not have the admin role yet. Ask the project owner to grant admin access in Supabase.");
+      setError(`Admin check failed for ${auth.session.user.email || "unknown email"} (user ID: ${auth.session.user.id}). ${profileError ? `Profile query error: ${profileError.message}` : `Role returned: ${profile?.role ?? "no profile row"}`}. Check that this account ID matches the admin row in the same Supabase project.`);
       setLoading(false); return;
     }
     setAdmin(true);
