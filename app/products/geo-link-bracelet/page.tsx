@@ -1,3 +1,4 @@
+import "./page.css";
 "use client";
 
 import { useState } from "react";
